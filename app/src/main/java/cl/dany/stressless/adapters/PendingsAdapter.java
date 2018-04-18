@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import cl.dany.stressless.PendingClickListener;
 import cl.dany.stressless.R;
 import cl.dany.stressless.data.Queries;
 import cl.dany.stressless.models.Pending;

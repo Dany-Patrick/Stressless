@@ -1,23 +1,27 @@
-package cl.dany.stressless;
+package cl.dany.stressless.views.main;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import cl.dany.stressless.R;
+import cl.dany.stressless.adapters.PendingClickListener;
 import cl.dany.stressless.adapters.PendingsAdapter;
 import cl.dany.stressless.models.Pending;
+import cl.dany.stressless.views.main.details.DetailsActivity;
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment implements PendingClickListener {
+    public static final String USER_ID = "cl.dany.stressless.views.KEY.USER_ID";
     private PendingsAdapter pendingsAdapter;
     public MainActivityFragment() {
     }
@@ -54,6 +58,8 @@ public class MainActivityFragment extends Fragment implements PendingClickListen
 
     @Override
     public void clickedId(Long id) {
-        Toast.makeText(getContext(), String.valueOf(id), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(), DetailsActivity.class);
+        intent.putExtra(USER_ID, id);
+        startActivity(intent);
     }
 }
